@@ -1,0 +1,20 @@
+@import 'shared/styles/constants.scss';
+
+:host {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  padding: $ident-main 0;
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex-shrink: 0;
+}
+
+mat-spinner {
+    margin: auto auto;
+}

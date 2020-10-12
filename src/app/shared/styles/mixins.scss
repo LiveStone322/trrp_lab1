@@ -1,0 +1,11 @@
+@import 'functions.scss';
+@mixin icon-square($src, $size, $replacedColor: null, $fillColor: null) {
+  @if ($fillColor) {
+    background-image: svg-url-with-replaced-fill($src, $replacedColor, $fillColor);
+  } @else {
+    background-image: svg-url($src);
+  }
+  background-size: $size $size;
+  background-position: center center;
+  background-repeat: no-repeat;
+}

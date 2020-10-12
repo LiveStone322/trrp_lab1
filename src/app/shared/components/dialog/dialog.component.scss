@@ -1,0 +1,11 @@
+@import '../../styles/constants.scss';
+
+.mat-dialog-content {
+  display: flex;
+  justify-content: center;
+  padding: $ident-main 0 $ident-large 0;
+}
+
+button:hover {
+  box-shadow: 0 10px 17px 0 rgba(0,0,0,.2), 0 5px 17px 4px rgba(0,0,0,.12);
+}
