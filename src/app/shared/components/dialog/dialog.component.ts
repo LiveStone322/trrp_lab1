@@ -9,7 +9,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 export class DialogComponent {
   goToGitHub() {
     window.open(
-      '//github.com//login//oauth//authorize?client_id=0d7091be8daa6877f269',
+      '//github.com//login//oauth//authorize?client_id=0d7091be8daa6877f269&scope=repo%20user%20delete_repo',
       '_self'
     );
   }

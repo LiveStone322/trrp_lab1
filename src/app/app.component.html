@@ -1,13 +1,17 @@
-<app-header></app-header>
+<app-header [src]="avatarSrc$ | async" [name]="name$ | async" style="margin-bottom: 5px;"></app-header>
 <div class="wrapper container">
   <div class="wrapper__row row justify-content-center">
     <div class="wrapper__router-outlet">
         <!-- <router-outlet></router-outlet> -->
     </div>
     <section class="wrapper__right-menu col-12 col-sm-3 order-1 order-sm-12">
-      <mat-card>
-        <mat-spinner *ngIf="!gh.TokenExists; else repos"></mat-spinner>
-      </mat-card>
+          <mat-card style="margin-bottom: 10px;">
+            <div class="container-fluid">
+              <div class="row justify-content-center">
+                <mat-spinner *ngIf="!gh.TokenExists; else repos"></mat-spinner>
+              </div>
+            </div>
+          </mat-card>
     </section>
     <section class="wrapper__main col-12 col-sm-9 order-2 order-sm-1">
       <mat-card>
@@ -19,11 +23,22 @@
 <app-footer></app-footer>
 
 <ng-template #repos>
-
+  <button mat-fab color="accent">
+    <mat-icon>add</mat-icon>
+  </button>
 </ng-template>
 
 <ng-template #content>
-  <ul>
-    <li></li>
+  <p>Репозитории</p>
+  <ul id="repos">
+    <li *ngFor="let repo of repos$ | async" style="margin: 25px 0;">
+      <app-repo 
+        [repoName]="repo.name" 
+        [repoDescription]="repo.description" 
+        [repoPrivate]="repo.private"
+        (onSave)="onSave($event)"
+        (onDelete)="onDelete(repo.name)"
+      ></app-repo>
+    </li>
   </ul>
 </ng-template>

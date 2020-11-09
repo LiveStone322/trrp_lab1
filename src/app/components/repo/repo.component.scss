@@ -1,0 +1,20 @@
+mat-card {
+    display: flex;
+    justify-content: space-between;
+    min-height: 72px;
+    overflow: hidden;
+    transition: all 0.25s ease;
+    .menu {
+        display: flex;
+    }
+    .content {
+        transition: 2s;
+        &__edit {
+            display: flex;
+            flex-flow: column nowrap;
+            &_line * {
+                margin-right: 15px;
+            }
+        }
+    }
+}

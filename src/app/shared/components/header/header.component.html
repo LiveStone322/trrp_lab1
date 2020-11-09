@@ -1,1 +1,15 @@
-<p>header works!</p>
+<header class="container-fluid">
+    <mat-card class="row">
+        <div class="container">
+            <div class="d-flex">
+                <button id="btn" mat-button [matMenuTriggerFor]="menu" [disabled]="!name">{{name || 'Войдите...'}}</button>
+                <mat-menu #menu="matMenu" xPosition="before">
+                    <div class="d-flex flex-column justify-content-center">
+                        <img src="{{src}}" alt="avatar" height="64" width="64">
+                        <button mat-button>Выйти</button>
+                    </div>
+                </mat-menu>
+            </div>
+        </div>
+    </mat-card>
+</header>

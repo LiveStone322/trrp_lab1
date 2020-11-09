@@ -1,0 +1,45 @@
+<mat-card #matCard>
+    <div class="content">
+        <span *ngIf="!editting; else edit">{{repoName}}</span>
+    </div>
+    <div class="menu">
+        <button mat-mini-fab (click)="onEditClick()">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button 
+            mat-mini-fab color="warn" 
+            style="margin-left: 10px;" 
+            (click)="onDeleteClick()"
+        >
+            <mat-icon>
+                delete
+            </mat-icon>
+        </button>
+    </div>
+</mat-card>
+
+<ng-template #edit>
+    <div class="content__edit">
+        <div class="content__edit_line">
+            <mat-form-field>
+                <mat-label>Название</mat-label>
+                <input matInput [formControl]="nameControl" [placeholder]="repoName">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Описание</mat-label>
+                <input matInput [formControl]="descControl" [placeholder]="repoDescription">
+            </mat-form-field>
+        </div>
+        <div class="content__edit_line">
+            <mat-form-field>
+                <mat-label>Видимость</mat-label>
+                <mat-select [(value)]="visibility">
+                    <mat-option value="public">Публичный</mat-option>
+                    <mat-option value="private">Приватный</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <button mat-raised-button (click)="onSaveClick()">Сохранить</button>
+            <button mat-button (click)="onCancelClick()">Отменить</button>
+        </div>
+    </div>
+</ng-template>
